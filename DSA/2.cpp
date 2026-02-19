@@ -6,14 +6,17 @@ int main(){
     int value = 500;
     int index = 3;
     int size = 5;
+    
+    // add new element
+    for(int i=size; i>index; i--){
+        arr[i]=arr[i-1];
+    }
 
-    // for(int i=size; i>index; i--){
-    //     arr[i]=arr[i-1];
-    // }
+    // update element
+    arr[index]=value;
+    size++;
 
-    // arr[index]=value;
-    // size++;
-
+    //delete element
     for(int i=index; i<size; i++){
         arr[i]=arr[i+1];
     }
