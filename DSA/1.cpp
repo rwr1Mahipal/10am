@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main(){
     int arr[5] = {10, -50, 30, -100, 50};
     int neg=0, pos=0;
     int posVal[5];
