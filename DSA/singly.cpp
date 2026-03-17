@@ -50,6 +50,40 @@ class SinglyList{
         }
         temp->next=newNode;
     }
+
+    void deleteAtBeg(){
+        if(head==NULL){
+            cout<<"List is empty"<<endl;
+            return;
+        }
+        Node* temp = head;
+        cout<<"Deleted Val: "<<temp->data<<endl;
+        head=head->next;
+        delete temp;
+        temp=nullptr;
+    }
+
+    void deleteAtEnd(){
+        if(head==NULL){
+            cout<<"List is empty"<<endl;
+            return;
+        }
+        if(head->next == NULL){
+            cout<<"Delete value at end: "<<head->data<<endl;
+            delete head;
+            head=NULL;
+            return;
+        }
+
+        Node* temp=head;
+        while(temp->next->next != NULL){
+            temp=temp->next;
+        }
+        Node* delVal = temp->next;
+        cout<<"Delete of val: "<<delVal->data<<endl;
+        delete delVal;
+        temp->next=NULL;
+    }
 };
 
 int main(){
@@ -59,5 +93,7 @@ int main(){
     s.addAtBeg(100);
     s.addAtEnd(20);
     s.addAtEnd(200);
+    // s.deleteAtBeg();
+    s.deleteAtEnd();
     s.display();
 }
