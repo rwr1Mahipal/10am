@@ -84,6 +84,40 @@ class SinglyList{
         delete delVal;
         temp->next=NULL;
     }
+
+    void update(int pos, int val){
+        Node* temp = head;
+        for(int i=0; i<pos; i++){
+            if(temp==NULL){
+                cout<<"Pos not found"<<endl;
+                return;
+            }
+            temp=temp->next;
+        }
+        temp->data=val;
+        cout<<"value added "<<val<<" of pos "<<pos<<endl;
+    }
+
+    void reverse(){
+        if(head==NULL || head->next == NULL){
+            cout<<"List is empty"<<endl;
+            return;
+        }
+
+        Node* pre = NULL;
+        Node* cur = head;
+        Node* next = NULL;
+
+        while(cur != NULL){
+            next=cur->next;
+            cur->next=pre;
+            pre=cur;
+            cur=next;
+        }
+        head=pre;
+
+    }
+
 };
 
 int main(){
@@ -93,7 +127,9 @@ int main(){
     s.addAtBeg(100);
     s.addAtEnd(20);
     s.addAtEnd(200);
+    // s.update(30, 500);
     // s.deleteAtBeg();
-    s.deleteAtEnd();
+    // s.deleteAtEnd();
+    s.reverse();
     s.display();
 }
