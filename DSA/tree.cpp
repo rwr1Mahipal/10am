@@ -20,6 +20,18 @@ class BinaryTree{
         root=NULL;
     }
 
+    Node* createTree(){
+        int val;
+        cin>>val;
+
+        if(val == -1) return NULL;
+        Node* node = new Node(val);
+        node->left = createTree();
+        node->right = createTree();
+
+        return node;
+    }
+
     void preOrder(Node* node){
         if(node==NULL) return;
         cout<<node->data<<" ";
@@ -45,11 +57,14 @@ class BinaryTree{
 int main(){
     BinaryTree b;
 
-    b.root = new Node(1);
-    b.root->left = new Node(2);
-    b.root->right = new Node(3);
-    b.root->left->left = new Node(4);
-    b.root->left->right = new Node(5);
+    // b.root = new Node(1);
+    // b.root->left = new Node(2);
+    // b.root->right = new Node(3);
+    // b.root->left->left = new Node(4);
+    // b.root->left->right = new Node(5);
+
+   cout<<"Enter tree value (enter -1 for NULL): ";
+   b.root = b.createTree();
 
     cout<<"PreOrder: ";
     b.preOrder(b.root);
