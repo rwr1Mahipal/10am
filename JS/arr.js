@@ -10,7 +10,7 @@ console.log("Original Arr: ", arr);
 
 // console.log(arr.join());
 // console.log(arr.slice(2));
-// arr.splice(0, 3);
+arr.splice(0, 3);
 // console.log(arr.length);
 // console.log(arr.indexOf(80));
 
